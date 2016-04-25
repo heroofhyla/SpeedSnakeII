@@ -6,6 +6,7 @@ public class GUI {
 	JFrame frame;
 	public GUI(int width, int height, KeyboardManager keyboardManager){
 		frame = new JFrame();
+		frame.setTitle("Speed Snake II: Revenge of the Mice");
 		GameCanvas canvas = new GameCanvas();
 		canvas.setPreferredSize(new Dimension(width, height));
 		

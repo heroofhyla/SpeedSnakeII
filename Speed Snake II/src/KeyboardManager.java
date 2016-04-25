@@ -11,9 +11,10 @@ public class KeyboardManager implements KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent k) {
-		if (!(keyIsHeld.containsKey(k.getKeyCode()) && !keyIsHeld.get(k.getKeyCode()))){
+		if ((!keyIsHeld.containsKey(k.getKeyCode()) || !keyIsHeld.get(k.getKeyCode()))){
 			keyPressQueue.addLast(k.getKeyCode());
 			keyHoldStack.addLast(k.getKeyCode());
+			System.out.println("Keycode:" + k.getKeyCode() + " pressed");
 		}
 		keyIsHeld.put(k.getKeyCode(), true);
 		
@@ -21,8 +22,11 @@ public class KeyboardManager implements KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent k) {
+		System.out.println("Keycode:" + k.getKeyCode() + " released");
 		keyIsHeld.put(k.getKeyCode(), false);
-		keyHoldStack.remove(k.getKeyCode());
+		if (keyHoldStack.contains(k.getKeyCode())){
+			keyHoldStack.remove((Integer)(k.getKeyCode()));
+		}
 	}
 
 	@Override
