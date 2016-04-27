@@ -4,13 +4,15 @@ public class SnakeGame {
 	private static final int TILE_SIZE = 20;
 	private static final int X_TILES = 25;
 	private static final int Y_TILES = 25;
+	private static final int GAME_WIDTH = TILE_SIZE * X_TILES;
+	private static final int GAME_HEIGHT = TILE_SIZE * Y_TILES;
 	private static final int FRAMES_PER_SECOND = 30;
 	private KeyboardManager keyboardManager;
 	private GUI gui;
 	private SnakeScene currentScene;
 	public SnakeGame(){
 		keyboardManager = new KeyboardManager();
-		gui = new GUI(TILE_SIZE * X_TILES, TILE_SIZE * Y_TILES, keyboardManager);
+		gui = new GUI(GAME_WIDTH, GAME_HEIGHT, keyboardManager);
 		currentScene = new HighScoreScene(13);
 	}
 	public static void main(String[] args){
@@ -20,6 +22,7 @@ public class SnakeGame {
 		while (true){
 			startTime = System.nanoTime();
 			game.currentScene.tick(game.gui.getGraphics(), game.keyboardManager.getKey());
+			game.gui.canvas.repaint();
 			if (game.currentScene.readyForNextScene()){
 				switch (game.currentScene.nextSceneType()){
 				case GAME:

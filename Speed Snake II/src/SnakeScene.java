@@ -13,10 +13,16 @@ public abstract class SnakeScene {
 		//TODO
 		return false;
 	}
-	
+	public void alertReadyForNextScene(){
+		//TODO
+	}
 	public SceneType nextSceneType(){
 		//TODO
 		return SceneType.TITLE;
+	}
+	
+	public void setNextSceneType(SceneType sceneType){
+		//TODO
 	}
 	
 	public int getScore(){

@@ -1,7 +1,7 @@
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class HighScoreScene extends SnakeScene{
 	private static final int SCORE_LIST_SIZE = 10;
 	ArrayList<Integer> scores = new ArrayList<>(SCORE_LIST_SIZE);
-	
+	int count = 0;
+	int newIndex = -1;
 	public HighScoreScene(int newScore) {
 		for (int i = 0; i < SCORE_LIST_SIZE; ++i){
 			scores.add(0);
@@ -30,7 +31,6 @@ public class HighScoreScene extends SnakeScene{
 			}
 			//TODO
 		}
-		int newIndex = -1;
 		for (int i = 0; i < scores.size(); ++i){
 			if (newScore > scores.get(i)){
 				newIndex = i;
@@ -56,7 +56,21 @@ public class HighScoreScene extends SnakeScene{
 
 	@Override
 	public void tick(Graphics2D g, int key) {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, g.getDeviceConfiguration().getBounds().width, g.getDeviceConfiguration().getBounds().height);
+		g.setColor(Color.WHITE);
+		g.drawString("High Scores", 80, 20);
+		int finalPos = 0;
+		for (int i = 0; i < scores.size(); ++i){
+			g.drawString(scores.get(i).toString(), 80,finalPos = 80 + 20*i);
+		}
 		
+		g.drawString("Press [ENTER] to return to the title screen.", 80, finalPos + 40);
+		
+		if (key == KeyEvent.VK_ENTER){
+			setNextSceneType(SceneType.TITLE);
+			alertReadyForNextScene();
+		}
 	}
 
 }
