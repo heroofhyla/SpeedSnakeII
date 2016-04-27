@@ -26,7 +26,7 @@ public class SnakeGame {
 					game.currentScene = new GameScene();
 					break;
 				case HIGHSCORE:
-					game.currentScene = new HighScoreScene();
+					game.currentScene = new HighScoreScene(game.currentScene.getScore());
 					break;
 				case TITLE:
 					game.currentScene = new TitleScene();

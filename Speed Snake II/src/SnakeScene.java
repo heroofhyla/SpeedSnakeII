@@ -6,16 +6,21 @@ public abstract class SnakeScene {
 		GAME,
 		HIGHSCORE
 	}
-	
+
 	public abstract void tick(Graphics2D g, int key);
 	
 	public boolean readyForNextScene(){
-		//TODO;
+		//TODO
 		return false;
 	}
 	
 	public SceneType nextSceneType(){
-		//TODO;
+		//TODO
 		return SceneType.TITLE;
+	}
+	
+	public int getScore(){
+		//TODO
+		return 0;
 	}
 }
