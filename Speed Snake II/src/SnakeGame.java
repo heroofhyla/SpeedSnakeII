@@ -11,7 +11,7 @@ public class SnakeGame {
 	public SnakeGame(){
 		keyboardManager = new KeyboardManager();
 		gui = new GUI(TILE_SIZE * X_TILES, TILE_SIZE * Y_TILES, keyboardManager);
-		currentScene = new HighScoreScene(0);
+		currentScene = new HighScoreScene(13);
 	}
 	public static void main(String[] args){
 		System.out.println(SwingUtilities.isEventDispatchThread());
