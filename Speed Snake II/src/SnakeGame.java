@@ -1,3 +1,5 @@
+import java.awt.Graphics2D;
+
 import javax.swing.SwingUtilities;
 
 public class SnakeGame {
@@ -21,7 +23,9 @@ public class SnakeGame {
 		long startTime;
 		while (true){
 			startTime = System.nanoTime();
-			game.currentScene.tick(game.gui.getGraphics(), game.keyboardManager.getKey());
+			Graphics2D g = game.gui.getGraphics();
+			game.currentScene.tick(g, game.keyboardManager.getKey());
+			g.dispose();
 			game.gui.canvas.repaint();
 			if (game.currentScene.readyForNextScene()){
 				switch (game.currentScene.nextSceneType()){
