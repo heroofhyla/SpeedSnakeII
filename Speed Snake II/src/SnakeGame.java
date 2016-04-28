@@ -15,7 +15,8 @@ public class SnakeGame {
 	public SnakeGame(){
 		keyboardManager = new KeyboardManager();
 		gui = new GUI(GAME_WIDTH, GAME_HEIGHT, keyboardManager);
-		currentScene = new HighScoreScene(219);
+		currentScene = new GameScene(X_TILES, Y_TILES, TILE_SIZE);
+		//currentScene = new HighScoreScene(50);
 	}
 	public static void main(String[] args){
 		System.out.println(SwingUtilities.isEventDispatchThread());
@@ -26,7 +27,7 @@ public class SnakeGame {
 			Graphics2D g = game.gui.getGraphics();
 			game.currentScene.tick(g, game.keyboardManager.getKey());
 			g.dispose();
-			game.gui.canvas.repaint();
+			game.gui.canvas.paintImmediately(0, 0, GAME_WIDTH, GAME_HEIGHT);
 			if (game.currentScene.readyForNextScene()){
 				switch (game.currentScene.nextSceneType()){
 				case GAME:
