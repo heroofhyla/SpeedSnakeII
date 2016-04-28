@@ -15,7 +15,7 @@ public class SnakeGame {
 	public SnakeGame(){
 		keyboardManager = new KeyboardManager();
 		gui = new GUI(GAME_WIDTH, GAME_HEIGHT, keyboardManager);
-		currentScene = new GameScene(X_TILES, Y_TILES, TILE_SIZE);
+		currentScene = new TitleScene();
 		//currentScene = new HighScoreScene(50);
 	}
 	public static void main(String[] args){

@@ -33,7 +33,7 @@ public class KeyboardManager implements KeyListener{
 			if ((!keyIsHeld.containsKey(k.getKeyCode()) || !keyIsHeld.get(k.getKeyCode()))){
 				keyPressQueue.addLast(k.getKeyCode());
 				keyHoldStack.addLast(k.getKeyCode());
-				System.out.println("Keycode:" + k.getKeyCode() + " pressed");
+				System.out.println(keyHoldStack.size());
 			}
 			keyIsHeld.put(k.getKeyCode(), true);
 		}

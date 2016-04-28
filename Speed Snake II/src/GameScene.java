@@ -25,6 +25,9 @@ public class GameScene extends SnakeScene{
 	public void tick(Graphics2D g, int key) {
 		g.setColor(Color.white);
 		g.fillRect(0, 0, width, height);
+		g.setColor(Color.black);
+		g.fillRect(appleX*tileSize-1, appleY*tileSize-1, tileSize+2, tileSize+2);
+
 		g.setColor(Color.red);
 		g.fillRect(appleX*tileSize, appleY*tileSize, tileSize, tileSize);
 		snake.draw(g, tileSize);
