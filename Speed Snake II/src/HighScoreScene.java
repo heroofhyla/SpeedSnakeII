@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 public class HighScoreScene extends SnakeScene{
 	private static final int SCORE_LIST_SIZE = 10;
@@ -20,7 +21,7 @@ public class HighScoreScene extends SnakeScene{
 		try {
 			bgImage = ImageIO.read(this.getClass().getResource("gameoverscreen.png"));
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Couldn't find gameoverscreen.png");
 			e1.printStackTrace();
 		}
 		for (int i = 0; i < SCORE_LIST_SIZE; ++i){
@@ -36,10 +37,9 @@ public class HighScoreScene extends SnakeScene{
 					++writeHead;
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				JOptionPane.showMessageDialog(null, "Couldn't read from highscores.txt");
 				e.printStackTrace();
 			}
-			//TODO
 		}
 		for (int i = 0; i < scores.size(); ++i){
 			if (newScore > scores.get(i)){
@@ -52,16 +52,17 @@ public class HighScoreScene extends SnakeScene{
 				break;
 			}
 		}
-		try (FileWriter writer = new FileWriter("highscores.txt")){
-			for (Integer i: scores){
-				writer.write(i + " ");
+		if (newIndex >= 0){
+			try (FileWriter writer = new FileWriter("highscores.txt")){
+				for (Integer i: scores){
+					writer.write(i + " ");
+				}
+				System.out.println("File written");
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, "Couldn't write to highscores.txt");
+				e.printStackTrace();
 			}
-			System.out.println("File written");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		// TODO
 	}
 
 	@Override

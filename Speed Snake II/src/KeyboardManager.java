@@ -32,6 +32,7 @@ public class KeyboardManager implements KeyListener{
 		if (validKeys.contains(k.getKeyCode())){
 			if ((!keyIsHeld.containsKey(k.getKeyCode()) || !keyIsHeld.get(k.getKeyCode()))){
 				keyPressQueue.addLast(k.getKeyCode());
+				keyHoldStack.remove((Integer)(k.getKeyCode()));
 				keyHoldStack.addLast(k.getKeyCode());
 				System.out.println(keyHoldStack.size());
 			}
@@ -45,9 +46,6 @@ public class KeyboardManager implements KeyListener{
 		if (validKeys.contains(k.getKeyCode())){
 			System.out.println("Keycode:" + k.getKeyCode() + " released");
 			keyIsHeld.put(k.getKeyCode(), false);
-			/*if (keyHoldStack.contains(k.getKeyCode())){
-				keyHoldStack.remove((Integer)(k.getKeyCode()));
-			}*/
 		}
 	}
 
@@ -61,7 +59,7 @@ public class KeyboardManager implements KeyListener{
 			while (!keyHoldStack.isEmpty()){
 				if (keyIsHeld.get(keyHoldStack.getLast())){
 					return keyHoldStack.getLast();
-				}else{//we shouldn't reach this state, but it's here just in case
+				}else{
 					keyHoldStack.removeLast();
 				}
 			}

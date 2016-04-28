@@ -8,7 +8,7 @@ public class SnakeGame {
 	private static final int Y_TILES = 50;
 	private static final int GAME_WIDTH = TILE_SIZE * X_TILES;
 	private static final int GAME_HEIGHT = TILE_SIZE * Y_TILES;
-	private static final int FRAMES_PER_SECOND = 30;
+	private static final int FRAMES_PER_SECOND = 20;
 	private KeyboardManager keyboardManager;
 	private GUI gui;
 	private SnakeScene currentScene;
@@ -16,7 +16,6 @@ public class SnakeGame {
 		keyboardManager = new KeyboardManager();
 		gui = new GUI(GAME_WIDTH, GAME_HEIGHT, keyboardManager);
 		currentScene = new TitleScene();
-		//currentScene = new HighScoreScene(50);
 	}
 	public static void main(String[] args){
 		System.out.println(SwingUtilities.isEventDispatchThread());
@@ -37,7 +36,6 @@ public class SnakeGame {
 					break;
 				case HIGHSCORE:
 					game.currentScene = new HighScoreScene(game.currentScene.getScore());
-					//game.currentScene = new HighScoreScene(30);
 					break;
 				case TITLE:
 					game.currentScene = new TitleScene();
