@@ -13,7 +13,7 @@ public class SnakeGame {
 	public SnakeGame(){
 		keyboardManager = new KeyboardManager();
 		gui = new GUI(GAME_WIDTH, GAME_HEIGHT, keyboardManager);
-		currentScene = new HighScoreScene(13);
+		currentScene = new HighScoreScene(219);
 	}
 	public static void main(String[] args){
 		System.out.println(SwingUtilities.isEventDispatchThread());
@@ -26,7 +26,7 @@ public class SnakeGame {
 			if (game.currentScene.readyForNextScene()){
 				switch (game.currentScene.nextSceneType()){
 				case GAME:
-					game.currentScene = new GameScene();
+					game.currentScene = new GameScene(X_TILES,Y_TILES,TILE_SIZE);
 					break;
 				case HIGHSCORE:
 					game.currentScene = new HighScoreScene(game.currentScene.getScore());
