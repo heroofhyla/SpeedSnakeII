@@ -7,22 +7,24 @@ public abstract class SnakeScene {
 		HIGHSCORE
 	}
 
+	boolean readyForNextScene = false;
+	SceneType nextSceneType = SceneType.TITLE;
 	public abstract void tick(Graphics2D g, int key);
 	
 	public boolean readyForNextScene(){
-		//TODO
-		return false;
+		return readyForNextScene;
+		
 	}
 	public void alertReadyForNextScene(){
-		//TODO
+		readyForNextScene = true;
 	}
 	public SceneType nextSceneType(){
-		//TODO
-		return SceneType.TITLE;
+		
+		return nextSceneType;
 	}
 	
-	public void setNextSceneType(SceneType sceneType){
-		//TODO
+	public void setNextSceneType(SceneType nextSceneType){
+		this.nextSceneType = nextSceneType;
 	}
 	
 	public int getScore(){
