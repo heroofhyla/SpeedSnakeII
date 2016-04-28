@@ -29,6 +29,7 @@ public class SnakeGame {
 			g.dispose();
 			game.gui.canvas.paintImmediately(0, 0, GAME_WIDTH, GAME_HEIGHT);
 			if (game.currentScene.readyForNextScene()){
+				System.out.println("Transitioning to next scene.");
 				switch (game.currentScene.nextSceneType()){
 				case GAME:
 					game.currentScene = new GameScene(X_TILES,Y_TILES,TILE_SIZE);

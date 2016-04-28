@@ -37,9 +37,9 @@ public class KeyboardManager implements KeyListener{
 		if (validKeys.contains(k.getKeyCode())){
 			System.out.println("Keycode:" + k.getKeyCode() + " released");
 			keyIsHeld.put(k.getKeyCode(), false);
-			if (keyHoldStack.contains(k.getKeyCode())){
+			/*if (keyHoldStack.contains(k.getKeyCode())){
 				keyHoldStack.remove((Integer)(k.getKeyCode()));
-			}
+			}*/
 		}
 	}
 

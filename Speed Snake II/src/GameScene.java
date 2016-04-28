@@ -10,7 +10,7 @@ public class GameScene extends SnakeScene{
 	private int height;
 	private Snake snake;
 	public GameScene(int xTiles, int yTiles, int tileSize){
-		snake = new Snake(xTiles/2, yTiles/2, 10);
+		snake = new Snake(xTiles/2, yTiles/2, 30);
 		this.xTiles = xTiles;
 		this.yTiles = yTiles;
 		this.tileSize = tileSize;
@@ -23,7 +23,7 @@ public class GameScene extends SnakeScene{
 		g.fillRect(0, 0, width, height);
 		snake.draw(g, tileSize);
 
-		boolean gameover =snake.attemptStep(key, xTiles, yTiles);
+		boolean gameover = !snake.attemptStep(key, xTiles, yTiles);
 		if (gameover){
 			setNextSceneType(SceneType.HIGHSCORE);
 			alertReadyForNextScene();
