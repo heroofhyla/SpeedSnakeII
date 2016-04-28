@@ -3,9 +3,9 @@ import java.awt.Graphics2D;
 import javax.swing.SwingUtilities;
 
 public class SnakeGame {
-	private static final int TILE_SIZE = 20;
-	private static final int X_TILES = 25;
-	private static final int Y_TILES = 25;
+	private static final int TILE_SIZE = 10;
+	private static final int X_TILES = 50;
+	private static final int Y_TILES = 50;
 	private static final int GAME_WIDTH = TILE_SIZE * X_TILES;
 	private static final int GAME_HEIGHT = TILE_SIZE * Y_TILES;
 	private static final int FRAMES_PER_SECOND = 30;

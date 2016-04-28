@@ -21,6 +21,10 @@ public class Snake{
 	
 	public void draw(Graphics2D g, int tileSize){
 		for (SnakeSegment s: segments){
+			g.setColor(Color.BLACK);
+			g.fillRect(s.getX() * tileSize-1, s.getY() * tileSize-1, tileSize+2, tileSize+2);
+		}
+		for (SnakeSegment s: segments){
 			g.setColor(Color.GREEN);
 			g.fillRect(s.getX() * tileSize, s.getY() * tileSize, tileSize, tileSize);
 		}
