@@ -19,6 +19,14 @@ public class KeyboardManager implements KeyListener{
 			validKeys.add(validKeysArray[i]);
 		}
 	}
+	
+	public void flush(){
+		keyPressQueue.clear();
+		keyHoldStack.clear();
+		for (int i: validKeys){
+			keyIsHeld.put(i, false);
+		}
+	}
 	@Override
 	public void keyPressed(KeyEvent k) {
 		if (validKeys.contains(k.getKeyCode())){

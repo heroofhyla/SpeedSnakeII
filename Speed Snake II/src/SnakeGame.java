@@ -30,12 +30,14 @@ public class SnakeGame {
 			game.gui.canvas.paintImmediately(0, 0, GAME_WIDTH, GAME_HEIGHT);
 			if (game.currentScene.readyForNextScene()){
 				System.out.println("Transitioning to next scene.");
+				game.keyboardManager.flush();
 				switch (game.currentScene.nextSceneType()){
 				case GAME:
 					game.currentScene = new GameScene(X_TILES,Y_TILES,TILE_SIZE);
 					break;
 				case HIGHSCORE:
 					game.currentScene = new HighScoreScene(game.currentScene.getScore());
+					//game.currentScene = new HighScoreScene(30);
 					break;
 				case TITLE:
 					game.currentScene = new TitleScene();

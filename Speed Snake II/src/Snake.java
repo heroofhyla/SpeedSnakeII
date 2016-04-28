@@ -84,4 +84,16 @@ public class Snake{
 		s.setY(targetY);
 		return true;
 	}
+	
+	public void grow(){
+		segments.addFirst(new SnakeSegment(segments.getFirst().getX(),segments.getFirst().getY()));
+	}
+	
+	public int getHeadX(){
+		return segments.getLast().getX();
+	}
+	
+	public int getHeadY(){
+		return segments.getLast().getY();
+	}
 }

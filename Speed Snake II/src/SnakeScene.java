@@ -6,7 +6,11 @@ public abstract class SnakeScene {
 		GAME,
 		HIGHSCORE
 	}
-
+	private int score = 0;
+	
+	public void addScore(int score){
+		this.score += score;
+	}
 	boolean readyForNextScene = false;
 	SceneType nextSceneType = SceneType.TITLE;
 	public abstract void tick(Graphics2D g, int key);
@@ -28,7 +32,6 @@ public abstract class SnakeScene {
 	}
 	
 	public int getScore(){
-		//TODO
-		return 0;
+		return score;
 	}
 }
