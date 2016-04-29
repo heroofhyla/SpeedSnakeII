@@ -11,8 +11,6 @@ public class GameScene extends SnakeScene{
 	private int xTiles;
 	private int yTiles;
 	private int tileSize;
-	private int width;
-	private int height;
 	private Snake snake;
 	private int foodX;
 	private int foodY;
@@ -32,8 +30,6 @@ public class GameScene extends SnakeScene{
 		this.xTiles = xTiles;
 		this.yTiles = yTiles;
 		this.tileSize = tileSize;
-		this.width = xTiles * tileSize;
-		this.height = yTiles * tileSize;
 	}
 	@Override
 	public void tick(Graphics2D g, int key) {
