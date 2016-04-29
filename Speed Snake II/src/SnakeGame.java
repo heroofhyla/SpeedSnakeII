@@ -8,7 +8,7 @@ public class SnakeGame {
 	private static final int Y_TILES = 50;
 	private static final int GAME_WIDTH = TILE_SIZE * X_TILES;
 	private static final int GAME_HEIGHT = TILE_SIZE * Y_TILES;
-	private static final int FRAMES_PER_SECOND = 20;
+	private static final int FRAMES_PER_SECOND = 20	;
 	private KeyboardManager keyboardManager;
 	private GUI gui;
 	private SnakeScene currentScene;
