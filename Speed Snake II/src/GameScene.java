@@ -21,7 +21,7 @@ public class GameScene extends SnakeScene{
 		try {
 			bgImage = ImageIO.read(this.getClass().getResource("grassy.png"));
 		} catch (IOException e1) {
-			JOptionPane.showMessageDialog(null, "Couldn't find titlescreen.png");
+			JOptionPane.showMessageDialog(null, "Couldn't find grassy.png");
 			e1.printStackTrace();
 		}
 		appleX = (int)(Math.random()*xTiles);
