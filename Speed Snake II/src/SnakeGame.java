@@ -18,9 +18,8 @@ public class SnakeGame {
 		currentScene = new TitleScene();
 	}
 	public static void main(String[] args){
-		System.out.println(SwingUtilities.isEventDispatchThread());
 		SnakeGame game = new SnakeGame();
-		long startTime;
+		long startTime = 0;
 		while (true){
 			startTime = System.nanoTime();
 			Graphics2D g = game.gui.getGraphics();
@@ -28,7 +27,6 @@ public class SnakeGame {
 			g.dispose();
 			game.gui.canvas.paintImmediately(0, 0, GAME_WIDTH, GAME_HEIGHT);
 			if (game.currentScene.readyForNextScene()){
-				System.out.println("Transitioning to next scene.");
 				game.keyboardManager.flush();
 				switch (game.currentScene.nextSceneType()){
 				case GAME:

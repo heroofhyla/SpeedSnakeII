@@ -34,7 +34,6 @@ public class KeyboardManager implements KeyListener{
 				keyPressQueue.addLast(k.getKeyCode());
 				keyHoldStack.remove((Integer)(k.getKeyCode()));
 				keyHoldStack.addLast(k.getKeyCode());
-				System.out.println(keyHoldStack.size());
 			}
 			keyIsHeld.put(k.getKeyCode(), true);
 		}
@@ -44,7 +43,6 @@ public class KeyboardManager implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent k) {
 		if (validKeys.contains(k.getKeyCode())){
-			System.out.println("Keycode:" + k.getKeyCode() + " released");
 			keyIsHeld.put(k.getKeyCode(), false);
 		}
 	}

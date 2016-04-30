@@ -29,7 +29,6 @@ public class HighScoreScene extends SnakeScene{
 		}
 		File scoresFile = new File("highscores.txt");
 		if (scoresFile.exists()){
-			System.out.println("File exists");
 			try (Scanner reader = new Scanner(scoresFile)){
 				int writeHead = 0;
 				while (reader.hasNextInt() && writeHead < scores.size()){
@@ -57,7 +56,6 @@ public class HighScoreScene extends SnakeScene{
 				for (Integer i: scores){
 					writer.write(i + " ");
 				}
-				System.out.println("File written");
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "Couldn't write to highscores.txt");
 				e.printStackTrace();
