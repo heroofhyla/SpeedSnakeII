@@ -7,7 +7,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 public class GameScene extends SnakeScene{
-	//TODO: Food and score
 	private int xTiles;
 	private int yTiles;
 	private int tileSize;
@@ -35,10 +34,6 @@ public class GameScene extends SnakeScene{
 	public void tick(Graphics2D g, int key) {
 		g.drawImage(bgImage, 0, 0, null);
 		g.setColor(Color.black);
-		//g.fillRect(foodX*tileSize-1, foodY*tileSize-1, tileSize+2, tileSize+2);
-
-		//g.setColor(Color.red);
-		//g.fillRect(foodX*tileSize, foodY*tileSize, tileSize, tileSize);
 		g.drawImage(foodImage, foodX*tileSize-1, foodY*tileSize-1, null);
 		snake.draw(g, tileSize);
 		boolean gameover = !snake.attemptStep(key, xTiles, yTiles);

@@ -43,7 +43,6 @@ public class HighScoreScene extends SnakeScene{
 		for (int i = 0; i < scores.size(); ++i){
 			if (newScore > scores.get(i)){
 				newIndex = i;
-				System.out.println(newScore + " > " + scores.get(i));
 				scores.add(i,newScore);
 				while (scores.size() > SCORE_LIST_SIZE){
 					scores.remove(scores.size() - 1);
