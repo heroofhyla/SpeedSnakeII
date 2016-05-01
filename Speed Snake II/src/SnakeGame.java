@@ -1,7 +1,5 @@
 import java.awt.Graphics2D;
 
-import javax.swing.SwingUtilities;
-
 public class SnakeGame {
 	private static final int TILE_SIZE = 10;
 	private static final int X_TILES = 50;
